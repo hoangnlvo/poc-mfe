@@ -1,0 +1,17 @@
+.DS_Store
+.vscode
+node_modules
+npm-debug.log
+yarn-error.log
+test-results.xml
+coverage
+build
+docker/build
+.protoc-cache
+src/schema
+.idea
+env.local.default.sh
+
+# vim
+*.sw[po]
+
