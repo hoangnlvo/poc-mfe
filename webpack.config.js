@@ -51,6 +51,7 @@ module.exports = {
         "./MenuItem": "./src/test-management/top-bar/menu-item.jsx",
         "./App": "./src/App.js",
         "./TopBar":"./src/test-management/top-bar/index.jsx",
+        './TestManagementLayout':'./src/test-management/index.jsx',
         './newReact': require.resolve('react'),
         './newReactDOM': require.resolve('react-dom'),
       },

@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get'
 import noop from 'lodash/noop'
 import trim from 'lodash/trim'
-import {Link, BrowserRouter} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import {MENU} from '../constants'
 import Header from './header'
 import MenuItem from './menu-item'
-import { ThemeProvider } from 'styled-components';
-import theme from 'portal/theme'
+import { useLocation } from 'react-router';
 
 
 const Wrapper = styled.div`
@@ -34,14 +33,13 @@ const MenuWrapper = styled.ul`
   align-items: center;
 `
 
-const TopBar = ({currentPath}) => {
+const TopBar = () => {
   const handleClickMenu = (e) => {
     e.preventDefault()
   }
-
+  const location = useLocation()
+  const currentPath = location.pathname
   return (
-      <BrowserRouter>
-    <ThemeProvider theme={theme}>
     <Wrapper>
       <Header/>
       <MenuWrapper>
@@ -69,15 +67,11 @@ const TopBar = ({currentPath}) => {
         })}
       </MenuWrapper>
     </Wrapper>
-    </ThemeProvider>
-      </BrowserRouter>
+
 
   )
 }
 
-TopBar.propTypes = {
-  currentPath: PropTypes.string.isRequired
-}
 
 
 export default TopBar

@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
 import {Transition, Easing} from '@kobiton/core-react/v2/services/animation'
-import { ThemeProvider } from 'styled-components';
-import theme from 'portal/theme'
 
 const Menu = styled.li.attrs({
   className: 'kobiton-org-menu'
@@ -40,12 +38,10 @@ const Item = styled.span`
 const MenuItem = ({selected, label, icon}) => {
 
   return (
-      <ThemeProvider theme={theme}>
     <Menu className={selected ? 'active' : ''}>
       {icon && <span>{icon}</span>}
       <Item>{label}</Item>
     </Menu>
-    </ThemeProvider>
   )
 }
 
