@@ -42,17 +42,21 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         remoteApp: "remoteApp@http://localhost:8182/remoteEntry.js",
+        portal:"portal@https://localhost:8181/remoteEntry.js"
       },
       exposes: {
         "./Item": "./src/Item.js",
         "./Main": "./src/Main.js",
+        "./Header": "./src/test-management/top-bar/header.jsx",
+        "./MenuItem": "./src/test-management/top-bar/menu-item.jsx",
         "./App": "./src/App.js",
+        "./TopBar":"./src/test-management/top-bar/index.jsx",
         './newReact': require.resolve('react'),
         './newReactDOM': require.resolve('react-dom'),
       },
-      shared: [
-        'react-dom',
-        {
+      shared: {
+        'react-dom': 'react-dom',
+        [`styled-components-${require('styled-components').VERSION}`]: 'styled-components',
           react: {
             import: 'react', // the "react" package will be used a provided and fallback module
             shareKey: 'newReact', // under this name the shared module will be placed in the share scope
@@ -66,8 +70,8 @@ module.exports = {
           //   shareScope: "modern", // share scope with this name will be used
           //   singleton: true, // only a single version of the shared module is allowed
           // },
-        },
-      ],
+
+      }
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
